@@ -1,4 +1,4 @@
-package repos;
+package com.SecureBlog.SecureBlog.repos;
 
 import com.SecureBlog.SecureBlog.Entity.Comment;
 import org.springframework.data.jpa.repository.JpaRepository;

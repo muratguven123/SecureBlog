@@ -3,7 +3,7 @@ package com.SecureBlog.SecureBlog.Service;
 import com.SecureBlog.SecureBlog.mapper.blog_post_mapper;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import repos.PostRepository;
+import com.SecureBlog.SecureBlog.repos.PostRepository;
 import org.springframework.stereotype.Service;
 
 @Service

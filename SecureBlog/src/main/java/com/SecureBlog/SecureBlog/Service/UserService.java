@@ -4,23 +4,42 @@ import com.SecureBlog.SecureBlog.dto.User.userResponse;
 import com.SecureBlog.SecureBlog.dto.User.userupdaterequest;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import repos.PasswordEncoder;
-import repos.UserRepository;
+import com.SecureBlog.SecureBlog.repos.UserRepository;
 import com.SecureBlog.SecureBlog.Entity.User;
 import com.SecureBlog.SecureBlog.mapper.usermapper;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.List;
 
 @Service
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserService {
-    private UserRepository userRepository;
+public class UserService implements UserDetails{
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of();
+    }
+
+    @Override
+    public String getPassword() {
+        return "";
+    }
+
+    @Override
+    public String getUsername() {
+        return "";
+    }
+
+    private  UserRepository userRepository;
     private usermapper usermapper;
     private userupdaterequest userupdaterequest;
    private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
+
 
     public List<userResponse> getAllUser(){
         List<User> users = userRepository.findAll();

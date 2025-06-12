@@ -3,6 +3,7 @@ package com.SecureBlog.SecureBlog.mapper;
 import com.SecureBlog.SecureBlog.Entity.User;
 import com.SecureBlog.SecureBlog.dto.User.userResponse;
 import com.SecureBlog.SecureBlog.dto.User.userupdaterequest;
+import com.SecureBlog.SecureBlog.dto.auth.LoginRequest;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -27,5 +28,12 @@ public class usermapper {
         userupdaterequest.setPassword(user.getPassword());
         userupdaterequest.setEmail(user.getEmail());
         return userupdaterequest;
+    }
+    public LoginRequest toLoginRequest(User user) {
+        LoginRequest loginrequest = new LoginRequest();
+        loginrequest.setUsername(user.getUsername());
+        loginrequest.setPassword(user.getPassword());
+        loginrequest.setEmail(user.getEmail());
+        return loginrequest;
     }
 }
