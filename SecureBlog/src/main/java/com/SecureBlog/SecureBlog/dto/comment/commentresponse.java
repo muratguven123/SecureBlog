@@ -9,5 +9,6 @@ import lombok.*;
 @NoArgsConstructor
 public class commentresponse {
     private String comment;
-    private String commentresponse;
+    private Long postid;
+    private String authorUsername;
 }

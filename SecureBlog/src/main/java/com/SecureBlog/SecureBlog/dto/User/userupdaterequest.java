@@ -1,5 +1,6 @@
 package com.SecureBlog.SecureBlog.dto.User;
 
+import com.SecureBlog.SecureBlog.Entity.RoleTypes;
 import lombok.*;
 
 @Data
@@ -12,4 +13,5 @@ public class userupdaterequest {
     private String username;
     private String password;
     private String email;
+    private RoleTypes roleTypes;
 }

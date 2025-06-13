@@ -1,8 +1,6 @@
 package com.SecureBlog.SecureBlog.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,7 +15,12 @@ public class Comment {
     private Long id;
 
     private String text;
-    private String post;
-    private String user;
+    @ManyToOne
+    @JoinColumn(name = "post_id")
+    private Post post;
+
+    @ManyToOne
+    @JoinColumn(name = "author_id")
+    private User author;
 
 }

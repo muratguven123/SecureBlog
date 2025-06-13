@@ -9,13 +9,11 @@ import java.util.Date;
 
 public class JwtService {
 
-    // Güçlü bir secret key (env değişkenlerinden alman önerilir, burada sabit yazdık)
+
     private static final String SECRET_KEY = "muratguven376-supersecurekey-which-should-be-long-enough";
 
-    // 1 gün = 24 saat * 60 dakika * 60 saniye * 1000 ms
     private static final long EXPIRATION_TIME = 1000 * 60 * 60 * 24;
 
-    // HMAC256 algoritması ile imzalama
     private Algorithm getAlgorithm() {
         return Algorithm.HMAC256(SECRET_KEY);
     }

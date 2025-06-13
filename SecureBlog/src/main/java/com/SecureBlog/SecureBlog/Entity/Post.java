@@ -21,6 +21,7 @@ public class Post {
     private String title;
     private String content;
     private int createdAt;
+    private String author;
 
 
 }

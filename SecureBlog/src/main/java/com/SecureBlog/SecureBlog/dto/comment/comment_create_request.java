@@ -1,5 +1,6 @@
 package com.SecureBlog.SecureBlog.dto.comment;
 
+import com.SecureBlog.SecureBlog.Entity.User;
 import lombok.*;
 
 @Data
@@ -8,8 +9,6 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class comment_create_request {
-    private String comment;
-    private Long postid;
-    private String user;
-    private String comment_author;
+    private int postId;        // Hangi post’a yorum yapılıyor
+    private String content;     // Yorumun içeriği
 }

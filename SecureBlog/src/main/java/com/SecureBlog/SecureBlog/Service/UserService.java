@@ -19,6 +19,10 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserService implements UserDetails{
+    private  UserRepository userRepository;
+    private usermapper usermapper;
+    private userupdaterequest userupdaterequest;
+    private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of();
@@ -34,22 +38,6 @@ public class UserService implements UserDetails{
         return "";
     }
 
-    private  UserRepository userRepository;
-    private usermapper usermapper;
-    private userupdaterequest userupdaterequest;
-   private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-
-
-
-    public List<userResponse> getAllUser(){
-        List<User> users = userRepository.findAll();
-        return users.stream().map(usermapper::toDto).toList();
-    }
-
-    public userResponse getUserById(int id){
-        User user = userRepository.findById(id).orElseThrow(()->new RuntimeException("User not found"));
-        return usermapper.toDto(user);
-    }
     public userResponse getUserByEmail(String email){
         User user = userRepository.findByEmail(email).orElseThrow(()->new RuntimeException("User not found"));
         return usermapper.toDto(user);
@@ -69,7 +57,6 @@ public class UserService implements UserDetails{
         user.setEmail(userupdaterequest.getEmail());
         user.setPassword(encoder.encode(user.getPassword()));
         user=  userRepository.save(user);
-
         return usermapper.toUpdater(user);
     }
     public void deleteUser(userResponse userResponse){
