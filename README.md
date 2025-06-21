@@ -20,11 +20,6 @@ MySQL veritabanı kullanımı için gerekli ayarlar application.properties için
 spring.application.name=SecureBlog
 pring.jpa.hibernate.ddl-auto=update
 spring.datasource.url=jdbc:mysql://localhost:3306
-spring.datasource.username=root
-spring.datasource.password=guven123.
-spring.security.user.name=murat
-spring.security.user.password=123
-
 Kurulum
 Java 17 ve Maven yüklü olmalıdır.
 
